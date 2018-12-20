@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "kodemill",
+      "authorEmail": "miklos.suveges@gmail.com",
+      "authorUrl": ""
+    }
+  }
+}
