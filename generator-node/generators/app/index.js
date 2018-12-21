@@ -17,8 +17,14 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "name",
-        message: "Project name",
+        message: "Enter project name:",
         default: this.appname
+      },
+      {
+        type: 'confirm',
+        name: "addDocker",
+        message: "Do you want docker support?",
+        default: true
       }
     ];
 
@@ -121,6 +127,22 @@ module.exports = class extends Generator {
         license: pkg.license
       }
     );
+    if (this.props.addDocker) {
+      this.fs.copyTpl(
+        this.templatePath("Dockerfile"),
+        this.destinationPath("Dockerfile"),
+        {
+          author: {
+            name: pkg.author.name,
+            email: pkg.author.email
+          }
+        }
+      );
+      this.fs.copy(
+        this.templatePath(".dockerignore"),
+        this.destinationPath(".dockerignore")
+      );
+    }
   }
 
   install() {

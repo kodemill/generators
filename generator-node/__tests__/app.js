@@ -1,6 +1,5 @@
 "use strict";
 const path = require("path");
-const assert = require("yeoman-assert");
 const helpers = require("yeoman-test");
 
 describe("generator-node:app", () => {
@@ -10,6 +9,5 @@ describe("generator-node:app", () => {
       .withPrompts({ someAnswer: true });
   });
 
-  it("creates files", () => {
-  });
+  it("creates files", () => {});
 });
